@@ -2,8 +2,8 @@
 name = "disk-verify"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+authors = ["bbitmaster@gmail.com"]
+description = "High-performance disk testing utility in Rust for validating large drives (10TB+) using pseudorandom patterns"
 
 [dependencies]
 libc = "0.2"
