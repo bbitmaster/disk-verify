@@ -33,13 +33,13 @@ The utility requires root privileges to access disk devices directly.
 ### Writing Random Patterns
 
 ```bash
-sudo ./disk-test-utility --write --seed 12345 --blocksize 64M /dev/sdX
+sudo ./disk-test-utility --write --seed 1 --blocksize 1M /dev/sdX
 ```
 
 ### Verifying Written Patterns
 
 ```bash
-sudo ./disk-test-utility --read --seed 12345 --blocksize 64M /dev/sdX
+sudo ./disk-test-utility --read --seed 1 --blocksize 1M /dev/sdX
 ```
 
 ### Parameters
@@ -71,13 +71,6 @@ cmp -b /dev/zero /dev/sdX
 dd if=/dev/sdX bs=1M status=progress | od -A x -t x1z | grep -v "0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00"
 ```
 
-## Performance Tips
-
-1. Use larger block sizes (32M-128M) for better performance on modern systems
-2. For NVMe drives, consider using block sizes up to 256M
-3. Monitor system memory usage and adjust block size if needed
-4. Run `sync` after writing to ensure all data is committed to disk
-
 ## Safety Warning
 
 ⚠️ **This tool will overwrite all data on the target device. Double-check the device path before running!**
@@ -91,13 +84,10 @@ The tool requires root privileges and can potentially destroy data if used incor
 - Provides real-time progress monitoring with MB/s measurements
 - Written in Rust for high performance and memory safety
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
 
 ## License
 
-MIT License - See LICENSE file for details
+MIT License
 
 ## Author
 
